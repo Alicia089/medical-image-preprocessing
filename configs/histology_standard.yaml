@@ -1,0 +1,15 @@
+steps:
+  - name: normalize
+    method: z_score
+  - name: clahe
+    clip_limit: 1.5
+    tile_grid_size: [16, 16]
+  - name: resize
+    width: 256
+    height: 256
+  - name: denoise
+    method: median
+    kernel_size: 3
+  - name: artifact
+    overexposure_threshold: 0.97
+    underexposure_threshold: 0.03
